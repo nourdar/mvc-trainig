@@ -2,9 +2,10 @@
 
 use admin\usersAdmin;
 use App\Connect;
-use App\Cconfig;
+use App\Config;
 use App\DB;
 use Package\classes\WebsiteArray;
+use Package\classes\Functions;
 
 
 
@@ -22,28 +23,24 @@ else {
 
 
 
-
+/*********************************/
+/********* Connection Part *****/
  $con = new Connect();
  $connect = $con->connect;
+/*********************************/
+
+/*********************************/
+/********* Routing Part *****/
+$route = config::dir('route');
+include($route.'web.php');
+/*********************************/
 
 
 
-//
-// var_dump($connect);
-// function nour(){
-// 	global $connect;
-// 	$sql ="SELECT * FROM users ";
-// 	$result = $connect->prepare($sql);
-// 	$result->execute()->fetch();
-// }
-//
-// var_dump(nour());
 
 
 
-$nour = "gachtou noureddine";
 
-echo addslashes($nour);
 
 
 

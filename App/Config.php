@@ -26,29 +26,29 @@ class Config {
 
 	}
 
-	/* Directory Configuration
-	**@parm string $action
-	**@return string directory
+	/** Directory Configuration
+	*@parm string $action
+	*@return string directory
 	*/
 	public function dir( $action = null){
 
 		$action = strtolower($action);
 
 		$server = self::$http_server = "http://".$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']).DIRECTORY_SEPARATOR;
-
+		$server = str_replace("\\",DIRECTORY_SEPARATOR,$server);
 		$App = $server."App".DIRECTORY_SEPARATOR;
 
-		$Controller = $server."Controller".DIRECTORY_SEPARATOR;
+		$Controller = "Controller".DIRECTORY_SEPARATOR;
 
-		$Package = $server."Package".DIRECTORY_SEPARATOR;
+		$Package = "Package".DIRECTORY_SEPARATOR;
 
-		$Classes = $server."Package".DIRECTORY_SEPARATOR."Classes".DIRECTORY_SEPARATOR;
+		$Classes = "Package".DIRECTORY_SEPARATOR."Classes".DIRECTORY_SEPARATOR;
 
-		$Routes = $server."Route".DIRECTORY_SEPARATOR;
+		$Routes = "Route".DIRECTORY_SEPARATOR;
 
-		$Model = $server."Model".DIRECTORY_SEPARATOR;
+		$Model = "Model".DIRECTORY_SEPARATOR;
 
-		$Views = $server."View".DIRECTORY_SEPARATOR;
+		$Views = "View".DIRECTORY_SEPARATOR;
 
 		self::$dirArray = [
 			"server"  		=> $server,
