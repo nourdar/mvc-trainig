@@ -5,8 +5,7 @@ use App\Connect;
 use App\Config;
 use App\DB;
 use Package\classes\WebsiteArray;
-use Package\classes\Functions;
-
+use Route\Route;
 
 
  spl_autoload_register(function($className){
@@ -31,13 +30,32 @@ else {
 
 /*********************************/
 /********* Routing Part *****/
-$route = config::dir('route');
-include($route.'web.php');
+
+//$route = (isset($_GET['Route']))? new Route($_GET['Route']) :  new Route();
+$route = new route();
+
+include(Config::dir("route")."web.php");
 /*********************************/
 
 
+/*********************************/
+/********* Functions Part *****/
+$func = config::dir('functions');
+include($func.'functions.php');
+//@includef From Route Class __construct()
+/*********************************/
 
+/*********************************/
+/********* Functions Part *****/
+$index = view("index");
+include($index);
+/*********************************/
 
+if(isset($_GET['route'])){
+  new Route($_GET['route']);
+} else {
+  new Route('home');
+}
 
 
 

@@ -11,6 +11,10 @@ class Config {
 
 	 public static  $http_server;
 
+	 public function __construct(){
+		echo "hi from config class";
+
+	 }
 	 /**
 	 * contain All Database Connection Paramters
 	 * @return array()
@@ -30,7 +34,7 @@ class Config {
 	*@parm string $action
 	*@return string directory
 	*/
-	public function dir( $action = null){
+	public static function dir( $action = null){
 
 		$action = strtolower($action);
 
@@ -44,11 +48,17 @@ class Config {
 
 		$Classes = "Package".DIRECTORY_SEPARATOR."Classes".DIRECTORY_SEPARATOR;
 
+		$Functions = "Package".DIRECTORY_SEPARATOR."Functions".DIRECTORY_SEPARATOR;
+
 		$Routes = "Route".DIRECTORY_SEPARATOR;
 
 		$Model = "Model".DIRECTORY_SEPARATOR;
 
-		$Views = "View".DIRECTORY_SEPARATOR;
+		$Views = "Views".DIRECTORY_SEPARATOR;
+
+		$Css = $Views."style".DIRECTORY_SEPARATOR."css".DIRECTORY_SEPARATOR;
+
+		$Js = $Views."style".DIRECTORY_SEPARATOR."js".DIRECTORY_SEPARATOR;
 
 		self::$dirArray = [
 			"server"  		=> $server,
@@ -56,9 +66,12 @@ class Config {
 			"controller"  => $Controller,
 			"package" 		=> $Package,
 			"classes"  		=> $Classes,
+			"functions"  	=> $Functions,
 			"route"  			=> $Routes,
 			"model"  			=> $Model,
 			"views"  			=> $Views,
+			"css"  				=> $Css,
+			"js"  				=> $Js,
 		];
 
 		if($action == null ){
