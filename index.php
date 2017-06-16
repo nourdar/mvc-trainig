@@ -23,10 +23,19 @@ else {
 
 
 /*********************************/
+/********* Functions Part *****/
+$func = config::dir('functions');
+include($func.'functions.php');
+//@includef From Route Class __construct()
+/*********************************/
+
+
+/*********************************/
 /********* Connection Part *****/
  $con = new Connect();
  $connect = $con->connect;
 /*********************************/
+
 
 /*********************************/
 /********* Routing Part *****/
@@ -39,14 +48,7 @@ include(Config::dir("route")."web.php");
 
 
 /*********************************/
-/********* Functions Part *****/
-$func = config::dir('functions');
-include($func.'functions.php');
-//@includef From Route Class __construct()
-/*********************************/
-
-/*********************************/
-/********* Functions Part *****/
+/********* View Part *****/
 $index = view("index");
 include($index);
 /*********************************/

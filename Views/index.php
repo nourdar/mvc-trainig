@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>hello</title>
+    <title>Hi From My Mvc Project</title>
     <link href="<?php echo css("main"); ?>" rel="stylesheet" />
   </head>
   <body>
